@@ -60,7 +60,7 @@ function Posts() {
     return (
         <div className="App">
             <MyButton style={{marginTop: 30}} onClick={() => setModal(true)}>
-                Создать пользователя
+                Create user
             </MyButton>
             <MyModal visable={modal} setVisible={setModal}>
                 <PostForm create={createPost}/>
@@ -73,18 +73,18 @@ function Posts() {
             <MySelect
                 value={limit}
                 onChange={value => setLimit(value)}
-                defaultValue="Кол-во элементов на странице"
+                defaultValue="Amount of items on page"
                 option={[
                     {value: 5, name: '5'},
                     {value: 10, name: '10'},
                     {value: 25, name: '25'},
-                    {value: -1, name: 'Показать все'},
+                    {value: -1, name: 'Show all'},
                 ]}
             />
             {postError &&
                 <h1>Произошла ошибка ${postError}</h1>
             }
-            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Посты про JS"/>
+            <PostList remove={removePost} posts={sortedAndSearchedPosts} title="Posts about JS"/>
             <div ref={lastElement} style={{height: 20, background: 'red'}}/>
             {isPostsLoading &&
                 <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}><Loader/></div>
